@@ -31,7 +31,8 @@ public class ArgsValidation {
                     return false;
                }
           } else {
-
+               printUsageMessage4(args[1]);
+               return false;
           }
           
           return true;
@@ -73,7 +74,7 @@ public class ArgsValidation {
 
      public static void printUsageMessage3(String mode, int argCount) {
           System.out.println(
-               "Expected two when MODE is set to " + mode + "\n" +
+               "Expected two arguments when MODE is set to " + mode + "\n" +
                "But got " + argCount + " arguments\n" +
                "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
      }
@@ -83,9 +84,5 @@ public class ArgsValidation {
                "Unexpected value for MODE: " + mode + "\n" +
                "Expected one of: random, type, participants, key, summary\n" +
                "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
-     }
-
-     public static void printUsageMessage() {
-          System.out.println("Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
      }
 }

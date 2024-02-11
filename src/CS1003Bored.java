@@ -29,7 +29,7 @@ public class CS1003Bored {
                case "summary":
                     break;
                default:
-                    ArgsValidation.printUsageMessage();
+                    ArgsValidation.printUsageMessage4(args[1]);
                     System.exit(1);
           }
 
