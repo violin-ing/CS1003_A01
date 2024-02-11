@@ -12,27 +12,32 @@ public class Random {
           try {
                URL url = new URL("https://www.boredapi.com/api/activity");
 
-               HttpURLConnection con = (HttpURLConnection) url.openConnection();
-               con.setRequestMethod("GET");
-               int responseCode = con.getResponseCode();
-               System.out.println("GET Response Code :: " + responseCode);
-               if (responseCode == HttpURLConnection.HTTP_OK) {
-                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+               HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+               connection.setRequestMethod("GET");
+               if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                     String inputLine;
                     StringBuffer response = new StringBuffer();
-                    while ((inputLine = in.readLine()) != null) {
+
+                    while ((inputLine = reader.readLine()) != null) {
                          response.append(inputLine);
                     }
-                    in.close();
-                    System.out.println(response.toString());
-               } else {
-                    System.out.println("GET request failed.");
-               }
+                    reader.close();
+                    String responseString = response.toString();
 
-          } catch(IOException exc) {
-               System.out.println("Error occurred when sending HTTP request.");
+                    formatActivity(responseString);
+               } else {
+                    System.out.println("HTTP GET request failed.");
+                    System.exit(1);
+               }
+          } catch (IOException exc) {
+               System.out.println("Error occurred when sending HTTP GET request.");
                System.exit(1);
           }
-          
+     }
+
+
+     public static void formatActivity(String jsonString) {
+
      }
 }

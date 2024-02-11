@@ -3,7 +3,7 @@ import java.nio.file.Paths;
 
 
 public class CS1003Bored {
-     public static void main(String args[]) {
+     public static void main(String[] args) {
           if (!ArgsValidation.checkArgs(args)) {
                System.exit(1);
           }
@@ -21,7 +21,7 @@ public class CS1003Bored {
                     Random.sendRequest();
                     break;
                case "type":
-               case "participant":
+               case "participants":
                case "key":
                case "summary":
                default:

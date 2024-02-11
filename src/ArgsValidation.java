@@ -8,7 +8,7 @@ public class ArgsValidation {
           // Run the validation for the args
           if (!lengthChecker(args)) {return false;}
           if (!filePathChecker(args[0])) {return false;}
-          if (args[1].equals("type") || args[1].equals("participant") || args[1].equals("key")) {
+          if (args[1].equals("type") || args[1].equals("participants") || args[1].equals("key")) {
                if (!valueChecker(args)) {return false;}
           }
 
@@ -25,7 +25,7 @@ public class ArgsValidation {
 
           switch (args[1]) {
                case "type":
-               case "participant":
+               case "participants":
                case "key":
                     if (args.length != 3) {
                          printUsageMessage();
@@ -72,7 +72,7 @@ public class ArgsValidation {
           switch (args[1]) {
                case "type": 
                     return true;
-               case "participant":
+               case "participants":
                case "key":
                     try {
                          int value = Integer.parseInt(args[2]);
