@@ -18,12 +18,16 @@ public class CS1003Bored {
           // Perform a certain method depending on the task specified by the user
           switch(task) {
                case "random":
-                    Random.sendRequest();
+                    Random.getActivity();
                     break;
                case "type":
+                    break;
                case "participants":
+                    break;
                case "key":
+                    break;
                case "summary":
+                    break;
                default:
                     ArgsValidation.printUsageMessage();
                     System.exit(1);

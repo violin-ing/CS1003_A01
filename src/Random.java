@@ -1,43 +1,23 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.StringReader;
+import java.util.Map.Entry;
 import javax.json.*;
-import javax.json.stream.*;
 
 
 public class Random {
-     public static void sendRequest() {
-          try {
-               URL url = new URL("https://www.boredapi.com/api/activity");
 
-               HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-               connection.setRequestMethod("GET");
-               if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                    String inputLine;
-                    StringBuffer response = new StringBuffer();
+     // Gets a random activity using the fixed URL "http://www.boredapi.com/api/activity"
+     public static void getActivity() {
+          String jsonString = HTTPRequest.sendRequest("http://www.boredapi.com/api/activity");
 
-                    while ((inputLine = reader.readLine()) != null) {
-                         response.append(inputLine);
-                    }
-                    reader.close();
-                    String responseString = response.toString();
+          // Convert the JSON String into a usable JSON object
+          StringReader stringReader = new StringReader(jsonString);
+          JsonReader jsonReader = Json.createReader(stringReader);
+          JsonObject jsonObject = jsonReader.readObject();
+          jsonReader.close();
 
-                    formatActivity(responseString);
-               } else {
-                    System.out.println("HTTP GET request failed.");
-                    System.exit(1);
-               }
-          } catch (IOException exc) {
-               System.out.println("Error occurred when sending HTTP GET request.");
-               System.exit(1);
-          }
-     }
-
-
-     public static void formatActivity(String jsonString) {
-
+          // Directly access keys and values to print the formatted output
+          System.out.println("Found an activity of type " + jsonObject.get("type"));
+          System.out.println("Number of participants needed: " + jsonObject.get("participants"));
+          System.out.println("Description: " + jsonObject.get("activity"));
      }
 }
