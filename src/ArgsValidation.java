@@ -19,31 +19,18 @@ public class ArgsValidation {
      // Checks that the args array has the correct number of elements, taking the task into consideration
      public static boolean lengthChecker(String[] args) {
           if (args.length < 2) {
-               printUsageMessage();
+               printUsageMessage1(args.length);
                return false;
           }
 
-          switch (args[1]) {
-               case "type":
-               case "participants":
-               case "key":
-                    if (args.length != 3) {
-                         printUsageMessage();
-                         return false;
-                    } else {
-                         break;
-                    }
-               case "random":
-               case "summary":
-                    if (args.length != 2) {
-                         printUsageMessage();
-                         return false;
-                    } else {
-                         break;
-                    }
-               default:
-                    printUsageMessage();
-                    return false;
+          if (args[1].equals("type") || args[1].equals("participants") || args[1].equals("key")) {
+               if (args.length != 3) {
+                    printUsageMessage2(args[1], args.length);
+               }
+          } else if (args[1].equals("random") || args[1].equals("summary")) {
+               if (args.length != 2) {
+                    printUsageMessage3(args[1], args.length);
+               }
           }
           
           return true;
@@ -57,11 +44,13 @@ public class ArgsValidation {
                if (Files.exists(filepath) && Files.isDirectory(filepath)) {
                     return true;
                } else {
-                    System.out.println("Invalid path to cache directory");
+                    System.out.println("Cache directory does not exist: no_such_cachedir\n" + 
+                         "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
                     return false;
                }
           } catch(InvalidPathException exc) {
-               System.out.println("Invalid path to cache directory");
+               System.out.println("Cache directory does not exist: no_such_cachedir\n" + 
+                    "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
                return false;
           }
      }
@@ -82,17 +71,33 @@ public class ArgsValidation {
                          return false;
                     }
                default:
-                    printUsageMessage();
                     return false;
           }
      }
 
 
-     // Method to store the default "usage" message
-     public static void printUsageMessage() {
+     // Methods to print the error messages
+     public static void printUsageMessage1(int argCount) {
           System.out.println(
-                    "Usage: java CS1003Bored pathToCacheDir ['type' | 'participants' | 'key'] value" +
-                    "\n       java CS1003Bored pathToCacheDir ['random' | 'summary']"
-                    );
+               "Expected two or three arguments, but got: " + argCount + "\n" +
+               "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
+     }
+
+     public static void printUsageMessage2(String mode, int argCount) {
+          System.out.println(
+               "Expected a third argument when MODE is set to " + mode + "\n" +
+               "But got " + argCount + " arguments\n" +
+               "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
+     }
+
+     public static void printUsageMessage3(String mode, int argCount) {
+          System.out.println(
+               "Expected a third argument when MODE is set to " + mode + "\n" +
+               "But got " + argCount + " arguments\n" +
+               "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
+     }
+
+     public static void printUsageMessage() {
+          System.out.println("Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
      }
 }
