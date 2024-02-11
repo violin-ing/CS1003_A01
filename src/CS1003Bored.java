@@ -8,25 +8,22 @@ public class CS1003Bored {
                System.exit(1);
           }
 
-          // Setting variables to eventually pass to methods in other classes
-          Path dirPath = Paths.get(args[0]);
-          String task = args[1];
-          if (args.length == 3) {
-               String value = args[2];
-          }
-
           // Perform a certain method depending on the task specified by the user
-          switch(task) {
+          switch(args[1]) {
                case "random":
                     Random.getActivity();
                     break;
                case "type":
+                    Type.getActivity(args[2]);
                     break;
                case "participants":
+                    Participants.getActivity(args[2]);
                     break;
                case "key":
+                    Key.getActivity(args[2]);
                     break;
                case "summary":
+                    Summary.getSummary();
                     break;
                default:
                     ArgsValidation.printUsageMessage4(args[1]);
