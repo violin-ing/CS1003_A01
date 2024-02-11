@@ -18,6 +18,8 @@ public class CS1003Bored {
           // Perform a certain method depending on the task specified by the user
           switch(task) {
                case "random":
+                    Random.sendRequest();
+                    break;
                case "type":
                case "participant":
                case "key":
