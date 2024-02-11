@@ -1,0 +1,3 @@
+Expected a third argument when MODE is set to participants
+But got 2 arguments
+Usage: java CS1003Bored CACHEDIR MODE [VALUE]

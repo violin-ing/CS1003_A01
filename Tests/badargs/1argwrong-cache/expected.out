@@ -1,0 +1,2 @@
+Expected two or three arguments, but got: 1
+Usage: java CS1003Bored CACHEDIR MODE [VALUE]

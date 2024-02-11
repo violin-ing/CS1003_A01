@@ -1,0 +1,3 @@
+Unexpected value for type: sport
+Expected one of: busywork, charity, cooking, diy, education, music, recreational, relaxation, social
+Usage: java CS1003Bored CACHEDIR MODE [VALUE]

@@ -1,0 +1,3 @@
+Unexpected value for MODE: location
+Expected one of: random, type, participants, key, summary
+Usage: java CS1003Bored CACHEDIR MODE [VALUE]

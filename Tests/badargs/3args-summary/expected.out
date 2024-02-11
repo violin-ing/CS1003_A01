@@ -1,0 +1,3 @@
+Expected two arguments when MODE is set to summary
+But got 3 arguments
+Usage: java CS1003Bored CACHEDIR MODE [VALUE]
