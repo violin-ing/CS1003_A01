@@ -12,7 +12,7 @@ public class ArgsValidation {
           return true;
      }
 
-
+     
      // Checks that the args array has the correct number of elements, taking the task into consideration
      private static boolean lengthChecker(String[] args) {
           if (args.length < 2) {
