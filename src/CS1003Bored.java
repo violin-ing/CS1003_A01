@@ -1,7 +1,3 @@
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
-
 public class CS1003Bored {
      public static void main(String[] args) {
           if (!ArgsValidation.checkArgs(args)) {
@@ -20,10 +16,10 @@ public class CS1003Bored {
                     Participants.getActivity(args[2]);
                     break;
                case "key":
-                    Key.getActivity(args[2]);
+                    Key.getActivity(args[0], args[2]);
                     break;
                case "summary":
-                    Summary.getSummary();
+                    Summary.getSummary(args[0]);
                     break;
                default:
                     ArgsValidation.printUsageMessage4(args[1]);

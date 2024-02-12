@@ -14,7 +14,7 @@ public class ArgsValidation {
 
 
      // Checks that the args array has the correct number of elements, taking the task into consideration
-     public static boolean lengthChecker(String[] args) {
+     private static boolean lengthChecker(String[] args) {
           if (args.length < 2) {
                printUsageMessage1(args.length);
                return false;
@@ -40,7 +40,7 @@ public class ArgsValidation {
 
 
      // Checks for a valid file path to the cache directory
-     public static boolean filePathChecker(String path) {
+     private static boolean filePathChecker(String path) {
           try {
                Path filepath = Paths.get(path);
                if (Files.exists(filepath) && Files.isDirectory(filepath)) {
@@ -59,20 +59,20 @@ public class ArgsValidation {
 
 
      // Methods to print the error messages
-     public static void printUsageMessage1(int argCount) {
+     private static void printUsageMessage1(int argCount) {
           System.out.println(
                "Expected two or three arguments, but got: " + argCount + "\n" +
                "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
      }
 
-     public static void printUsageMessage2(String mode, int argCount) {
+     private static void printUsageMessage2(String mode, int argCount) {
           System.out.println(
                "Expected a third argument when MODE is set to " + mode + "\n" +
                "But got " + argCount + " arguments\n" +
                "Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
      }
 
-     public static void printUsageMessage3(String mode, int argCount) {
+     private static void printUsageMessage3(String mode, int argCount) {
           System.out.println(
                "Expected two arguments when MODE is set to " + mode + "\n" +
                "But got " + argCount + " arguments\n" +
