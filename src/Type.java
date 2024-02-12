@@ -5,7 +5,7 @@ import javax.json.*;
 
 public class Type {
 
-     // Gets a specific activity using the base URL "http://www.boredapi.com/api/activity" and the value
+     // Gets a specific activity using the base URL "http://www.boredapi.com/api/activity" and the type of activity
      public static void getActivity(String type) {
           StringBuffer urlStrBfr = new StringBuffer();
           urlStrBfr.append("http://www.boredapi.com/api/activity");

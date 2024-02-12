@@ -5,7 +5,7 @@ import javax.json.*;
 
 public class Participants {
 
-     // Gets a specific activity using the base URL "http://www.boredapi.com/api/activity" and the value
+     // Gets a specific activity using the base URL "http://www.boredapi.com/api/activity" and the number of participants
      public static void getActivity(String participants) {
           StringBuffer urlStrBfr = new StringBuffer();
           urlStrBfr.append("http://www.boredapi.com/api/activity");
@@ -22,7 +22,6 @@ public class Participants {
           // Directly access keys and values to print the formatted output
           if (jsonObject.containsKey("error")) {
                System.out.println("Unexpected value for participants: " + participants);
-               System.out.println("Expected one of: busywork, charity, cooking, diy, education, music, recreational, relaxation, social");
                System.out.println("Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
           } else {
                System.out.println("Found an activity of participants " + jsonObject.get("participants"));
