@@ -23,7 +23,7 @@ public class Participants {
                System.out.println("Unexpected value for participants: " + participants);
                System.out.println("Usage: java CS1003Bored CACHEDIR MODE [VALUE]");
           } else {
-               System.out.println("Found an activity of participants " + jsonObject.get("participants"));
+               System.out.println("Found an activity of type " + jsonObject.get("type"));
                System.out.println("Number of participants needed: " + jsonObject.get("participants"));
                System.out.println("Description: " + jsonObject.get("activity"));
           }
