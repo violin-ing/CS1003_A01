@@ -19,5 +19,5 @@ public class Word {
      }
 
      // Used to sort the words in the ArrayList in the Summary class
-     public static Comparator<Word> counComparator = Comparator.comparing(Word::getCount);
+     public static Comparator<Word> countComparator = Comparator.comparing(Word::getCount);
 }

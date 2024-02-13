@@ -66,7 +66,7 @@ public class Summary {
           }
 
           // Now the words will be sorted in decreasing order
-          Collections.sort(wordList, Word.counComparator);
+          Collections.sort(wordList, Word.countComparator);
           Collections.reverse(wordList);
 
           System.out.println("Most frequent words in the activity fields:");
